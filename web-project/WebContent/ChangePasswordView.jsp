@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Change Password</title>
 </head>
+
 <body>
 	<%
 		String errorMsg = (String) request.getAttribute("errorMsg");

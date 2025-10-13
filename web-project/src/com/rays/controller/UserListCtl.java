@@ -1,7 +1,6 @@
 package com.rays.controller;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -42,13 +41,13 @@ public class UserListCtl extends HttpServlet {
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
 		String op = request.getParameter("operation");
-		
-		String[]ids = request.getParameterValues("ids");
-		
-		if(op.equals("delete")) {
-			
-			if(ids != null && ids.length >0) {
-				for(String id: ids) { 
+
+		String[] ids = request.getParameterValues("ids");
+
+		if (op.equals("delete")) {
+
+			if (ids != null && ids.length > 0) {
+				for (String id : ids) {
 					try {
 						model.delete(Integer.parseInt(id));
 						request.setAttribute("successMsg", "record deleted successfully");
@@ -56,19 +55,26 @@ public class UserListCtl extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
-			}else {
+			} else {
 				request.setAttribute("errorMsg", "select at least one record");
 			}
+
 		}
+
+		if (op.equals("search")) {
+			bean.setFirstName(request.getParameter("firstName"));
+		}
+
 		try {
 			List list = model.search(bean);
 			request.setAttribute("list", list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("UserListView.jsp");
 		rd.forward(request, response);
+
 	}
 
 }

@@ -10,7 +10,7 @@
 	<%@ include file="Header.jsp"%>
 
 	<div align="center">
-		<h1 style="color: blue">Welcome to my website</h1>
+		<h1 style="color:black;">Welcome to my website</h1>
 	</div>
 
 	<%@ include file="Footer.jsp"%>

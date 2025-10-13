@@ -1,6 +1,8 @@
 package com.rays.model;
 
 import java.sql.Connection;
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class UserModel {
 		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
+			
 			pk = rs.getInt(1);
 			System.out.println("max id: " + pk);
 		}
@@ -38,6 +41,7 @@ public class UserModel {
 		UserBean existsBean = findByLogin(bean.getLogin());
 
 		if (existsBean != null) {
+			
 			throw new DuplicateRecordException("login id already exist");
 		}
 
@@ -61,6 +65,7 @@ public class UserModel {
 	}
 
 	/* <---------delete a record----------> */
+	
 	public void delete(int id) throws Exception {
 
 		Connection conn = JDBCDataSource.getConnection();
@@ -70,7 +75,9 @@ public class UserModel {
 		pstmt.setInt(1,id);
 
 		int i = pstmt.executeUpdate();
+		
 		System.out.println("data deleted successfully: " + i);
+		
 		conn.close();
 
 	}
@@ -152,7 +159,9 @@ public class UserModel {
 	}
 
 	/* <---------change password----------> */
-	public void changePassword(String oldPassword, String newPassword, String login) throws Exception {
+	
+	public void changePassword(String oldPassword, String newPassword, String login)
+			throws Exception {
 
 		UserBean existBean = findByLogin(login);
 
@@ -176,6 +185,7 @@ public class UserModel {
 			conn.close();
 
 		} else {
+			
 			throw new Exception("old password is incorrect");
 		}
 
@@ -192,6 +202,7 @@ public class UserModel {
 		ResultSet rs = pstmt.executeQuery();
 
 		UserBean bean = null;
+		
 		while (rs.next()) {
 			bean = new UserBean();
 			bean.setId(rs.getInt(1));
