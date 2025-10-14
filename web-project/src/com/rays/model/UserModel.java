@@ -1,8 +1,7 @@
 package com.rays.model;
 
 import java.sql.Connection;
-
-
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ public class UserModel {
 		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
-			
 			pk = rs.getInt(1);
 			System.out.println("max id: " + pk);
 		}
@@ -41,7 +39,6 @@ public class UserModel {
 		UserBean existsBean = findByLogin(bean.getLogin());
 
 		if (existsBean != null) {
-			
 			throw new DuplicateRecordException("login id already exist");
 		}
 
@@ -65,19 +62,16 @@ public class UserModel {
 	}
 
 	/* <---------delete a record----------> */
-	
 	public void delete(int id) throws Exception {
 
 		Connection conn = JDBCDataSource.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement("delete from st_user where id = ?");
 
-		pstmt.setInt(1,id);
+		pstmt.setInt(1, id);
 
 		int i = pstmt.executeUpdate();
-		
 		System.out.println("data deleted successfully: " + i);
-		
 		conn.close();
 
 	}
@@ -159,9 +153,7 @@ public class UserModel {
 	}
 
 	/* <---------change password----------> */
-	
-	public void changePassword(String oldPassword, String newPassword, String login)
-			throws Exception {
+	public void changePassword(String oldPassword, String newPassword, String login) throws Exception {
 
 		UserBean existBean = findByLogin(login);
 
@@ -185,7 +177,6 @@ public class UserModel {
 			conn.close();
 
 		} else {
-			
 			throw new Exception("old password is incorrect");
 		}
 
@@ -202,7 +193,6 @@ public class UserModel {
 		ResultSet rs = pstmt.executeQuery();
 
 		UserBean bean = null;
-		
 		while (rs.next()) {
 			bean = new UserBean();
 			bean.setId(rs.getInt(1));
@@ -219,7 +209,7 @@ public class UserModel {
 
 	}
 
-	public List search(UserBean bean) throws Exception {
+	public List search(UserBean bean, int pageNo, int pageSize) throws Exception {
 
 		List list = new ArrayList();
 
@@ -232,6 +222,15 @@ public class UserModel {
 			if (bean.getLastName() != null && bean.getLastName().length() > 0) {
 				sql.append(" and lastName like '" + bean.getLastName() + "%'");
 			}
+			if (bean.getDob() != null && bean.getDob().getTime() > 0) {
+				Date dob = new Date(bean.getDob().getTime());
+				sql.append(" and dob like '" + dob + "%'");
+			}
+		}
+
+		if (pageSize > 0) {
+			pageNo = (pageNo - 1) * pageSize;
+			sql.append(" limit " + pageNo + ", " + pageSize);
 		}
 
 		Connection conn = JDBCDataSource.getConnection();
