@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body style= "background-color: #E6E6FA">
 	<%@ include file="Header.jsp"%>
 
 	<div align="center">

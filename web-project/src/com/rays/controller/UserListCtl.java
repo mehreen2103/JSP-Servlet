@@ -1,7 +1,7 @@
 package com.rays.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
 
-@WebServlet("/UserListCtl")
+@WebServlet("/UserListCtl.do")
 public class UserListCtl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
