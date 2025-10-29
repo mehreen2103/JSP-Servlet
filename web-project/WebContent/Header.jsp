@@ -32,7 +32,10 @@
 	<a href="UserCtl.do">Add User</a> |
 	<a href="UserListCtl.do">User List</a> |
 	<a href="ChangePasswordCtl">Change Password</a>|
-	<a href="LoginCtl?operation=logout">Logout</a>
+	<a href="LoginCtl?operation=logout">Logout</a>|
+	<a href="PaymentCtl.do">Add payment</a>|
+	<a href="PaymentListCtl.do">payment list</a>
+	
 	<%
 		} else {
 	%>
