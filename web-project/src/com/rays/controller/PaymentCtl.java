@@ -1,6 +1,7 @@
 package com.rays.controller;
 
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
@@ -14,12 +15,35 @@ import com.rays.bean.PaymentBean;
 import com.rays.bean.UserBean;
 import com.rays.model.PaymentModel;
 import com.rays.model.UserModel;
+import com.rays.util.DataValidator;
 
 
 @WebServlet("/PaymentCtl.do")
 public class PaymentCtl extends HttpServlet {
 	
        
+//	@Override
+//	protected void service(HttpServletRequest request, HttpServletResponse response) 
+//			throws ServletException, IOException {
+//		
+//		System.out.println("service method chali");
+//
+//		String op = request.getParameter("operation");
+//		System.out.println("op ===> " + op);
+//
+//		if (op != null) {
+//			System.out.println("op mila ==> ");
+//			if (!DataValidator.paymentValidation(request)) {
+//				System.out.println(" Paymnet data validate nahi hai");
+//				RequestDispatcher rd = request.getRequestDispatcher("PaymentView.jsp");
+//				rd.forward(request, response);
+//				return;
+//			}
+//		}
+//
+//		super.service(request, response);
+//		
+//	}
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

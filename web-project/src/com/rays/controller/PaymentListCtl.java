@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.rays.bean.PaymentBean;
+import com.rays.bean.UserBean;
 import com.rays.model.PaymentModel;
+import com.rays.model.UserModel;
 
 
 @WebServlet("/PaymentListCtl.do")
@@ -68,6 +70,7 @@ public class PaymentListCtl extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
+			
 			} else {
 				request.setAttribute("errorMsg", "select at least one record");
 			}
@@ -77,7 +80,7 @@ public class PaymentListCtl extends HttpServlet {
 		if (op.equals("search")) {
 			try {
 				bean.setDob(sdf.parse(request.getParameter("dob")));
-				bean.setName(request.getParameter("name"));
+				bean.setName(request.getParameter("Name"));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -108,6 +111,5 @@ public class PaymentListCtl extends HttpServlet {
 		rd.forward(request, response);
 
 	}
-
 
 }

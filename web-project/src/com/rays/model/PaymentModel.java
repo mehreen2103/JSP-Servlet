@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rays.bean.PaymentBean;
-import com.rays.bean.UserBean;
-import com.rays.exception.DuplicateRecordException;
-import com.rays.exception.RecordNotFoundException;
 import com.rays.util.JDBCDataSource;
 
 public class PaymentModel {
@@ -121,7 +118,7 @@ public class PaymentModel {
 	}
 
 
-
+///*------------------------Find by Id ------------------------*///
 	public PaymentBean findById(int id) throws Exception {
 
 		Connection conn = JDBCDataSource.getConnection();
@@ -148,6 +145,8 @@ public class PaymentModel {
 		return bean;
 
 	}
+	
+	/*--------------Search Method---------------*/
 
 	public List search(PaymentBean bean, int pageNo, int pageSize) throws Exception {
 

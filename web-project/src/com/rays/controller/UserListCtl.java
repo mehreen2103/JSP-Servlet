@@ -68,6 +68,7 @@ public class UserListCtl extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
+			
 			} else {
 				request.setAttribute("errorMsg", "select at least one record");
 			}
@@ -108,5 +109,6 @@ public class UserListCtl extends HttpServlet {
 		rd.forward(request, response);
 
 	}
+	
 
 }

@@ -43,7 +43,7 @@
 			<table>
 				<tr>
 					<th>Name</th>
-					<td><input type="text" name="tName" value=""
+					<td><input type="text" name="Name" value=""
 						placeholder="search by first name"></td>
 					<td><input type="submit" name="operation" value="search"></td>
 
@@ -58,12 +58,12 @@
 
 				<tr style="background-color: skyblue">
 					<th>Delete</th>
-					<th>id</th>
-					<th>name</th>
-					<th>account</th>
-					<th>upi_id</th>
-					<th>total_amount</th>
-					<th>dob</th>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Account</th>
+					<th>Upi_Id</th>
+					<th>Total_Amount</th>
+					<th>DOB</th>
 					<th>Edit</th>
 				</tr>
 
@@ -84,7 +84,7 @@
 					<td><%=bean.getUpi_id()%></td>
 					<td><%=bean.getTotal_amount()%></td>
 					<td><%=bean.getDob()%></td>
-					<td><a href="PaymentListCtl.do?id=<%=bean.getId()%>">edit</a></td>
+					<td><a href="PaymentCtl.do?id=<%=bean.getId()%>">edit</a></td>
 				</tr>
 				<%
 					}

@@ -53,32 +53,30 @@
 				<tr>
 					<th>Name</th>
 					<td><input type="text" name="Name"
-						value="<%=bean != null ? bean.getName() : ""%>"
-						placeholder="enter Customer name"></td>
+						value="<%=bean != null ? bean.getName() : ""%>"placeholder="enter Customer name">
+					</td>
 				</tr>
 				<tr>
 					<th>Account</th>
-					<td><input type="text" name="Account"
-						value="<%=bean != null ? bean.getAccount() : ""%>"
-						placeholder="Enter payment mode"></td>
+					<td><input type="text" name="Account" value="<%=bean != null ? bean.getAccount() : ""%>" placeholder="Enter payment mode">
+				</td>
 				</tr>
 				<tr>
 					<th>Upi_id</th>
-					<td><input type="text" name="upi_id"
-						value="<%=bean != null ? bean.getUpi_id() : ""%>"
-						placeholder="enter your id"></td>
+					<td><input type="text" name="Upi_id"
+						value="<%=bean != null ? bean.getUpi_id() : ""%>" placeholder="enter your id">
+						</td>
 				</tr>
 				<tr>
 					<th>Total_amount</th>
-					<td><input type="text" name="Total_Amount"
-						value="<%=bean != null ? bean.getTotal_amount() : ""%>"
-						placeholder="enter Total_Amount"></td>
+					<td><input type="text" name="Total_amount"value="<%=bean != null ? bean.getTotal_amount() : ""%>" placeholder="enter Total_Amount">
+						</td>
 				</tr>
 				<tr>
 					<th>Payment date </th>
-					<td><input type="text" name="dob"
-						value="<%=bean != null ? bean.getDob() : ""%>"
-						placeholder="Enter date of birth"></td>
+					<td><input type="date" name="dob" value="<%=bean != null && bean.getDob() != null ? new java.text.SimpleDateFormat("yyyy-MM-dd").format(bean.getDob()) : ""%>"
+					 placeholder="Enter date of birth">
+					</td>
 				</tr>
 				<tr>
 					<th></th>

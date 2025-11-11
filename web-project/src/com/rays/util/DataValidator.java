@@ -1,9 +1,7 @@
 package com.rays.util;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 public class DataValidator {
@@ -67,5 +65,60 @@ public class DataValidator {
 		return isValid;
 
 	}
+
+	
+    //  New validation for Payment form
+	
+//	public static boolean paymentValidation(HttpServletRequest request) {
+//
+//	    boolean isValid = true;
+//
+//	    System.out.println("Name: " + request.getParameter("Name"));
+//
+//	    if (request.getParameter("Name") == "") {
+//	        request.setAttribute("Name", "Name is required");
+//	        System.out.println("Name is required");
+//	        isValid = false;
+//	    }
+//
+//	    if (request.getParameter("Account") == "") {
+//	        request.setAttribute("Account", "Account number is required");
+//	        System.out.println("Account number is required");
+//	        isValid = false;
+//	    } else if (!request.getParameter("Account").matches("\\d{9,18}")) {
+//	        request.setAttribute("Account", "Enter valid account number (9–18 digits)");
+//	        System.out.println("Invalid account number");
+//	        isValid = false;
+//	    }
+//
+//	    if (request.getParameter("Upi_id") == "") {
+//	        request.setAttribute("Upi_id", "UPI ID is required");
+//	        System.out.println("UPI ID is required");
+//	        isValid = false;
+//	    } else if (!request.getParameter("Upi_id").matches("^[\\w.-]+@[a-zA-Z]+$")) {
+//	        request.setAttribute("Upi_id", "Invalid UPI ID format (e.g., name@bank)");
+//	        System.out.println("Invalid UPI ID format");
+//	        isValid = false;
+//	    }
+//
+//	    if (request.getParameter("Total_amount") == "") {
+//	        request.setAttribute("Total_amount", "Total amount is required");
+//	        System.out.println("Total amount is required");
+//	        isValid = false;
+//	    } else if (!request.getParameter("Total_amount").matches("\\d+(\\.\\d{1,2})?")) {
+//	        request.setAttribute("Total_amount", "Enter valid amount");
+//	        System.out.println("Invalid total amount");
+//	        isValid = false;
+//	    }
+//
+//	    if (request.getParameter("dob") == "") {
+//	        request.setAttribute("dob", "Date of Birth is required");
+//	        System.out.println("Date of Birth is required");
+//	        isValid = false;
+//	    }
+//
+//	    return isValid;
+//	}
+//
 
 }
